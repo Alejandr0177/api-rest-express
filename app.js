@@ -3,6 +3,7 @@ const inicio_Debug = require('debug')('app:inicio'); // Importar el paquete debu
                                     // de depuracion
 const dbDebug = require('debug')('app:db');
 const usuarios = require('./routes/usuarios');
+const consolas = require('./routes/consolas');
 const express = require('express'); // Importa el paquete express
 const config = require('config'); // Importa el paquete config
 const logger = require('./logger');
@@ -34,6 +35,8 @@ app.use('/api/usuarios', usuarios); // Middleware que importamos
 // La ruta raiz se va a concatenar como prefijo
 // al inicio de todas las rutas definidas en 
 // el archivo usuarios
+
+app.use('/api/consolas', consolas);
 
 console.log(`Aplicacion: ${config.get('nombre')}`);
 console.log(`DB server: ${config.get('configDB.host')}`);
